@@ -5,7 +5,7 @@ Welcome to the 2021 PEP Engineering Jest Workshop!  This repository contains Jav
 
 - Install [NVM](https://github.com/nvm-sh/nvm#installing-and-updating)
 - Run `nvm use`
-- If you are missing the specified version of Node.js, run ``nvm install `cat .nvmrc```
+- If you are missing the specified version of Node.js, run `` nvm install `cat .nvmrc` ``
 - Run `npm install`
 
 ## Run automated tests
