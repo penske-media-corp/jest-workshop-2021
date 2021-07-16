@@ -1,21 +1,21 @@
 {
-	"name": "jest-workshop-2021",
-	"version": "1.0.0",
-	"description": "Jest testing workshop lab",
-	"main": "index.js",
-	"scripts": {
-		"test": "jest --coverage"
-	},
-	"homepage": "https://github.com/penske-media-corp/jest-workshop-2021#readme",
-	"devDependencies": {
-		"@babel/plugin-transform-modules-commonjs": "^7.14.5",
-		"jest": "^27.0.6"
-	},
-	"jest": {
-		"coverageDirectory": "coverage",
-		"testEnvironment": "jsdom",
-		"collectCoverageFrom": [
-			"index.js"
-		]
-	}
+    "name": "jest-workshop-2021",
+    "version": "1.0.0",
+    "description": "Jest testing workshop lab",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest --coverage"
+    },
+    "homepage": "https://github.com/penske-media-corp/jest-workshop-2021#readme",
+    "devDependencies": {
+        "@babel/plugin-transform-modules-commonjs": "^7.14.5",
+        "jest": "^27.0.6"
+    },
+    "jest": {
+        "coverageDirectory": "coverage",
+        "testEnvironment": "jsdom",
+        "collectCoverageFrom": [
+            "index.js"
+        ]
+    }
 }
