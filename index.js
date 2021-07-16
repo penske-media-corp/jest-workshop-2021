@@ -13,3 +13,10 @@ export function add(first, second) {
 
     return first + second;
 }
+
+export function addListItem($el, text) {
+    const li = document.createElement('li');
+
+    li.appendChild(document.createTextNode(text));
+    $el.appendChild(li);
+}
