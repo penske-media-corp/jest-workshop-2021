@@ -58,21 +58,9 @@ export function latestRollingStoneArticleTitle() {
                 throw new Error('Status code is not 200, it is ' + response.status);
             }
 
-            response.json().then(function(data) {                
-                if (
-                    'object' !== typeof(data) ||
-                    'object' !== typeof(data[0]) ||
-                    'object' !== typeof(data[0]['title']) ||
-                    'string' !== typeof(data[0]['title']['rendered'])
-                ) {
-                    throw new Error('JSON structure is not as expected.');
-                }
-
+            response.json().then(function(data) {
                 return data[0]['title']['rendered'];
             });
         }
     )
-    .catch(function(err) {
-        throw new Error('Fetch error: ' + err);
-    });
 }
