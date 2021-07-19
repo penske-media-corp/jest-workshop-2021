@@ -37,7 +37,7 @@ export function addListItem($el, text) {
  * @returns {number}
  * @throws {Error}
  */
-export function addPositiveNumber(first, second) {
+export function addPositiveNumbers(first, second) {
     if (isPositiveNumber(first) || isPositiveNumber(second)) {
         throw new Error('Parameter was not a number.');
     }
