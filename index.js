@@ -22,7 +22,7 @@ export function addListItem($el, text) {
 }
 
 export function isPositive(number) {
-    if (typeof first !== 'number') {
+    if (typeof number !== 'number') {
         throw new Error('Parameter was not a number.'); 
     }
     
