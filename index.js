@@ -20,3 +20,15 @@ export function addListItem($el, text) {
     li.appendChild(document.createTextNode(text));
     $el.appendChild(li);
 }
+
+export function isPositive(number) {
+    if (typeof number !== 'number') {
+        throw new Error('Parameter was not a number.'); 
+    }
+    
+    if (0 < number) {
+        return true;
+    }
+
+    return false;
+}
