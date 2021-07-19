@@ -16,7 +16,7 @@ export function add(first, second) {
     return first + second;
 }
 
-/**
+/*
  * Add a new item to a list.
  *
  * @param {HTMLOListElement|HTMLUListElement} $el Unordered or order list element
