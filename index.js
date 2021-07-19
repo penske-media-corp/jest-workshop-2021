@@ -32,15 +32,27 @@ export function addListItem($el, text) {
  *
  * @param {number} number
  * @returns {boolean}
+ * @throws {Error}
  */
-export function isPositive(number) {
+export function isPositiveNumber(number) {
     if (typeof number !== 'number') {
         throw new Error('Parameter was not a number.'); 
     }
 
-    if (0 < number) {
-        return true;
-    }
+    return 0 < number;
+}
 
-    return false;
+/**
+ * Comma-separated string converts to array.
+ *
+ * @param {string} text comma-separated string
+ * @returns {array}
+ * @throws {Error}
+ */
+export function commaSeparatedStringToArray(text) {
+	if (typeof text !== 'string') {
+		throw new Error('Parameter was not a string.');
+	}
+
+	return text.split(',');
 }
