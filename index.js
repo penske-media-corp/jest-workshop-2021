@@ -14,6 +14,12 @@ export function add(first, second) {
     return first + second;
 }
 
+/**
+ * Add a new item to a list.
+ *
+ * @param {HTMLOListElement|HTMLUListElement} $el Unordered or order list element
+ * @param {string} text Text to add to list item
+ */
 export function addListItem($el, text) {
     const li = document.createElement('li');
 
@@ -21,11 +27,17 @@ export function addListItem($el, text) {
     $el.appendChild(li);
 }
 
+/**
+ * Is a number positive.
+ *
+ * @param {number} number
+ * @returns {boolean}
+ */
 export function isPositive(number) {
     if (typeof number !== 'number') {
         throw new Error('Parameter was not a number.'); 
     }
-    
+
     if (0 < number) {
         return true;
     }
