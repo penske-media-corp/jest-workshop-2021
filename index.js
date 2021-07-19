@@ -1,3 +1,5 @@
+import { isPositiveNumber } from "./isPositiveNumber";
+
 /**
  * Add two numbers.
  * 
@@ -28,21 +30,19 @@ export function addListItem($el, text) {
 }
 
 /**
- * Is a number positive.
- *
- * @param {number} number
- * @returns {boolean}
+ * Add two positive numbers together.
+ * 
+ * @param {number} first 
+ * @param {number} second 
+ * @returns {number}
+ * @throws {Error}
  */
-export function isPositive(number) {
-    if (typeof number !== 'number') {
-        throw new Error('Parameter was not a number.'); 
+export function addPositiveNumber(first, second) {
+    if (isPositiveNumber(first) || isPositiveNumber(second)) {
+        throw new Error('Parameter was not a number.');
     }
 
-    if (0 < number) {
-        return true;
-    }
-
-    return false;
+    return first + second;
 }
 
 /**
