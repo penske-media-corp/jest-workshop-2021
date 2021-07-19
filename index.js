@@ -50,9 +50,9 @@ export function isPositiveNumber(number) {
  * @throws {Error}
  */
 export function commaSeparatedStringToArray(text) {
-	if (typeof text !== 'string') {
-		throw new Error('Parameter was not a string.');
-	}
+    if (typeof text !== 'string') {
+        throw new Error('Parameter was not a string.');
+    }
 
-	return text.split(',');
+    return text.split(',');
 }
