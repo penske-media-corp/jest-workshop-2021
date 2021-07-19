@@ -14,9 +14,33 @@ export function add(first, second) {
     return first + second;
 }
 
+/**
+ * Add a new item to a list.
+ *
+ * @param $el  Unordered or order list element
+ * @param text Text to add to list item
+ */
 export function addListItem($el, text) {
     const li = document.createElement('li');
 
     li.appendChild(document.createTextNode(text));
     $el.appendChild(li);
+}
+
+/**
+ * Is a number positive.
+ *
+ * @param number
+ * @returns {boolean}
+ */
+export function isPositive(number) {
+    if (typeof number !== 'number') {
+        throw new Error('Parameter was not a number.'); 
+    }
+
+    if (0 < number) {
+        return true;
+    }
+
+    return false;
 }
