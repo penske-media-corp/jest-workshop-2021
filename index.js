@@ -44,3 +44,35 @@ export function isPositive(number) {
 
     return false;
 }
+
+/**
+ * Get the title of the latest artciel on Rolling Stone.
+ *
+ * @returns {string}
+ */
+export function latestRollingStoneArticleTitle() {
+    fetch('https://www.rollingstone.com/wp-json/wp/v2/posts?per_page=1')
+    .then(
+        function(response) {
+            if (response.status !== 200) {
+                throw new Error('Status code is not 200, it is ' + response.status);
+            }
+
+            response.json().then(function(data) {                
+                if (
+                    'object' !== typeof(data) ||
+                    'object' !== typeof(data[0]) ||
+                    'object' !== typeof(data[0]['title']) ||
+                    'string' !== typeof(data[0]['title']['rendered'])
+                ) {
+                    throw new Error('JSON structure is not as expected.');
+                }
+
+                return data[0]['title']['rendered'];
+            });
+        }
+    )
+    .catch(function(err) {
+        throw new Error('Fetch error: ' + err);
+    });
+}
