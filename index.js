@@ -17,8 +17,8 @@ export function add(first, second) {
 /**
  * Add a new item to a list.
  *
- * @param $el  Unordered or order list element
- * @param text Text to add to list item
+ * @param {HTMLOListElement|HTMLUListElement} $el Unordered or order list element
+ * @param {string} text Text to add to list item
  */
 export function addListItem($el, text) {
     const li = document.createElement('li');
@@ -30,7 +30,7 @@ export function addListItem($el, text) {
 /**
  * Is a number positive.
  *
- * @param number
+ * @param {number} number
  * @returns {boolean}
  */
 export function isPositive(number) {
