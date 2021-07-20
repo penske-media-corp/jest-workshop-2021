@@ -2,9 +2,9 @@ import { isPositiveNumber } from "./isPositiveNumber";
 
 /**
  * Add two numbers.
- * 
- * @param {number} first 
- * @param {number} second 
+ *
+ * @param {number} first
+ * @param {number} second
  * @returns {number}
  * @throws {Error}
  */
@@ -30,21 +30,6 @@ export function addListItem($el, text) {
 }
 
 /**
- * Is a number positive.
- *
- * @param {number} number
- * @returns {boolean}
- * @throws {Error}
- */
-export function isPositiveNumber(number) {
-    if (typeof number !== 'number') {
-        throw new Error('Parameter was not a number.'); 
-    }
-
-    return 0 < number;
-}
-
-/**
  * Comma-separated string converts to array.
  *
  * @param {string} text comma-separated string
@@ -61,9 +46,9 @@ export function commaSeparatedStringToArray(text) {
 
 /**
  * Add two positive numbers together.
- * 
- * @param {number} first 
- * @param {number} second 
+ *
+ * @param {number} first
+ * @param {number} second
  * @returns {number}
  * @throws {Error}
  */
