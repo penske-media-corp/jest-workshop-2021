@@ -53,7 +53,7 @@ export function commaSeparatedStringToArray(text) {
  * @throws {Error}
  */
 export function addPositiveNumbers(first, second) {
-    if (isPositiveNumber(first) || isPositiveNumber(second)) {
+    if (!isPositiveNumber(first) || !isPositiveNumber(second)) {
         throw new Error('Parameter was not a number.');
     }
 
