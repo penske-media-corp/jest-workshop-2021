@@ -1,8 +1,10 @@
+import { isPositiveNumber } from "./isPositiveNumber";
+
 /**
  * Add two numbers.
- * 
- * @param {number} first 
- * @param {number} second 
+ *
+ * @param {number} first
+ * @param {number} second
  * @returns {number}
  * @throws {Error}
  */
@@ -28,21 +30,6 @@ export function addListItem($el, text) {
 }
 
 /**
- * Is a number positive.
- *
- * @param {number} number
- * @returns {boolean}
- * @throws {Error}
- */
-export function isPositiveNumber(number) {
-    if (typeof number !== 'number') {
-        throw new Error('Parameter was not a number.'); 
-    }
-
-    return 0 < number;
-}
-
-/**
  * Comma-separated string converts to array.
  *
  * @param {string} text comma-separated string
@@ -55,4 +42,40 @@ export function commaSeparatedStringToArray(text) {
     }
 
     return text.split(',');
+}
+
+/**
+ * Add two positive numbers together.
+ *
+ * @param {number} first
+ * @param {number} second
+ * @returns {number}
+ * @throws {Error}
+ */
+export function addPositiveNumbers(first, second) {
+    if (isPositiveNumber(first) || isPositiveNumber(second)) {
+        throw new Error('Parameter was not a number.');
+    }
+
+    return first + second;
+}
+
+/**
+ * Get the title of the latest artciel on Rolling Stone.
+ *
+ * @returns {string}
+ */
+export function latestRollingStoneArticleTitle() {
+    fetch('https://www.rollingstone.com/wp-json/wp/v2/posts?per_page=1')
+    .then(
+        function(response) {
+            if (response.status !== 200) {
+                throw new Error('Status code is not 200, it is ' + response.status);
+            }
+
+            response.json().then(function(data) {
+                return data[0]['title']['rendered'];
+            });
+        }
+    )
 }
