@@ -16,7 +16,8 @@
     "coverageDirectory": "coverage",
     "testEnvironment": "jsdom",
     "collectCoverageFrom": [
-      "index.js"
+      "index.js",
+      "isPositiveNumber.js"
     ]
   }
 }
