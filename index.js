@@ -61,21 +61,19 @@ export function addPositiveNumbers(first, second) {
 }
 
 /**
- * Get the title of the latest artciel on Rolling Stone.
+ * Get the title of the latest article on Rolling Stone.
  *
  * @returns {string}
  */
 export function latestRollingStoneArticleTitle() {
-    fetch('https://www.rollingstone.com/wp-json/wp/v2/posts?per_page=1')
-    .then(
-        function(response) {
+    return fetch('https://www.rollingstone.com/wp-json/wp/v2/posts?per_page=1')
+        .then((response) => {
             if (response.status !== 200) {
                 throw new Error('Status code is not 200, it is ' + response.status);
             }
 
-            response.json().then(function(data) {
-                return data[0]['title']['rendered'];
-            });
-        }
-    )
+            return response;
+        })
+        .then((response) => response.json())
+        .then((data) => data[0].title.rendered);
 }
