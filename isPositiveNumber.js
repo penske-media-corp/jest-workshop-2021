@@ -4,14 +4,7 @@
  * @param {number} number
  * @returns {boolean}
  */
- export function isPositiveNumber(number) {
-    if (typeof number !== 'number') {
-        throw new Error('Parameter was not a number.'); 
-    }
-
-    if (0 < number) {
-        return true;
-    }
-
-    return false;
+export function isPositiveNumber(number) {
+    // Simplify this function so that it purely returns boolean
+    return typeof number === 'number' && 0 < number;
 }

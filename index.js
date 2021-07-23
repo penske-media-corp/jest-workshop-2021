@@ -54,7 +54,7 @@ export function commaSeparatedStringToArray(text) {
  */
 export function addPositiveNumbers(first, second) {
     if (!isPositiveNumber(first) || !isPositiveNumber(second)) {
-        throw new Error('Parameter was not a number.');
+        throw new Error('Parameter was not a positive number.');
     }
 
     return first + second;
@@ -63,7 +63,8 @@ export function addPositiveNumbers(first, second) {
 /**
  * Get the title of the latest article on Rolling Stone.
  *
- * @returns {string}
+ * @returns {Promise<string>}
+ * @throws {Error}
  */
 export function latestRollingStoneArticleTitle() {
     return fetch('https://www.rollingstone.com/wp-json/wp/v2/posts?per_page=1')
