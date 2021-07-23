@@ -4,7 +4,8 @@
   "description": "Jest testing workshop lab",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test:watch": "jest --watchAll --coverage"
   },
   "homepage": "https://github.com/penske-media-corp/jest-workshop-2021#readme",
   "dependencies": {},
