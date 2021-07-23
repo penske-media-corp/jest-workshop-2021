@@ -7,7 +7,9 @@
     "test": "jest --coverage"
   },
   "homepage": "https://github.com/penske-media-corp/jest-workshop-2021#readme",
-  "dependencies": {},
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.14.5",
     "fetch-mock-jest": "^1.5.1",
