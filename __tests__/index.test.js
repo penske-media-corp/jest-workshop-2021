@@ -12,9 +12,21 @@ describe('add', () => {
         expect(add(1, 2)).toBe(3);
     });
 
-    test('Throws when non-number passed', () => {
+    test('Throws when non-number passed on first param', () => {
         expect(() => {
             add('1', 3);
+        }).toThrow('Parameter was not a number.');
+    });
+
+    test('Throws when non-number passed on second param', () => {
+        expect(() => {
+            add(1, '3');
+        }).toThrow('Parameter was not a number.');
+    });
+
+    test('Throws when non-number passed on both params', () => {
+        expect(() => {
+            add('1', '3');
         }).toThrow('Parameter was not a number.');
     });
 
@@ -144,34 +156,26 @@ describe('addPositiveNumbers', () => {
     });
 
     test('Adding large numbers together works as expected', () => {
+        IsPositiveNumber.isPositiveNumber.mockReturnValueOnce(true).mockReturnValueOnce(true);
         const largeNumber = 12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678;
         const largeNumbersAddedTogether = 2.4691357802469135e+307;
-        expect(add(largeNumber, largeNumber)).toBe(largeNumbersAddedTogether);
+        expect(addPositiveNumbers(largeNumber, largeNumber)).toBe(largeNumbersAddedTogether);
     });
 
     test('Adding numbers together that go past MAX_VALUE result in Infinity being the solution', () => {
+        IsPositiveNumber.isPositiveNumber.mockReturnValueOnce(true).mockReturnValueOnce(true);
         const largeNumber = 123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789;
-        expect(add(largeNumber, largeNumber)).toBe(Infinity);
+        expect(addPositiveNumbers(largeNumber, largeNumber)).toBe(Infinity);
     });
 
     test('Adding Infinity to another number equals Infinity', () => {
-        expect(add(Infinity, 12345)).toBe(Infinity);
-    });
-
-    test('Adding Infinity to a negitive number to Throw error', () => {
-        expect(() => {
-            addPositiveNumbers(Infinity, -12345);
-        }).toThrow('Parameter was not a number.');
+        IsPositiveNumber.isPositiveNumber.mockReturnValueOnce(true).mockReturnValueOnce(true);
+        expect(addPositiveNumbers(Infinity, 12345)).toBe(Infinity);
     });
 
     test('Adding Infinity to Infinity is still Infinity', () => {
-        expect(add(Infinity, Infinity)).toBe(Infinity);
-    });
-
-    test('Adding Infinity to negative Infinity is still Infinity', () => {
-        expect(() => {
-            addPositiveNumbers(Infinity, -Infinity);
-        }).toThrow('Parameter was not a number.');
+        IsPositiveNumber.isPositiveNumber.mockReturnValueOnce(true).mockReturnValueOnce(true);
+        expect(addPositiveNumbers(Infinity, Infinity)).toBe(Infinity);
     });
 
     test('Expect isPositiveNumber to have been called twice', () => {
