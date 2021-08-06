@@ -33,11 +33,15 @@ describe('add', () => {
         expect(add(Infinity, 12345)).toBe(Infinity);
     });
 
+    test('Adding Infinity to a negitive number number equals Infinity', () => {
+        expect(add(Infinity, -12345)).toBe(Infinity);
+    });
+
     test('Adding Infinity to Infinity is still Infinity', () => {
         expect(add(Infinity, Infinity)).toBe(Infinity);
     });
 
-    test('Adding Infinity to Infinity is still Infinity', () => {
+    test('Adding Infinity to negative Infinity is still Infinity', () => {
         expect(add(Infinity, -Infinity)).toBe(NaN);
     });
 
@@ -96,7 +100,23 @@ describe('addListItem', () => {
 
 describe('commaSeparatedStringToArray', () => {
     test('Returns array from comma separated string', () => {
-        expect(commaSeparatedStringToArray('my,unit,test')).toEqual(['my','unit','test']);
+        expect(commaSeparatedStringToArray('my,unit,test')).toStrictEqual(['my','unit','test']);
+    });
+
+    test('Adding in extra commas returns empty array values', () => {
+        expect(commaSeparatedStringToArray(',my,unit,,test,,,,')).toStrictEqual(['','my','unit','','test','','','','']);
+    });
+
+    test('A string with no commas returns an array with a single empty string in it', () => {
+        expect(commaSeparatedStringToArray('')).toStrictEqual(['']);
+    });
+
+    test('A string with just commas in it still works as expected', () => {
+        expect(commaSeparatedStringToArray(',,')).toStrictEqual(['','','']);
+    });
+
+    test('Adding in spaces and special characters works as expected', () => {
+        expect(commaSeparatedStringToArray('Here, are a bunch of special characters: #$%^&*,12345     ')).toStrictEqual(['Here',' are a bunch of special characters: #$%^&*','12345     ']);
     });
 
     test('Throws when non-string passed', () => {
@@ -120,6 +140,37 @@ describe('addPositiveNumbers', () => {
         IsPositiveNumber.isPositiveNumber.mockReturnValueOnce(false).mockReturnValueOnce(true);
         expect(() => {
             addPositiveNumbers('1', 3);
+        }).toThrow('Parameter was not a number.');
+    });
+
+    test('Adding large numbers together works as expected', () => {
+        const largeNumber = 12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678;
+        const largeNumbersAddedTogether = 2.4691357802469135e+307;
+        expect(add(largeNumber, largeNumber)).toBe(largeNumbersAddedTogether);
+    });
+
+    test('Adding numbers together that go past MAX_VALUE result in Infinity being the solution', () => {
+        const largeNumber = 123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789;
+        expect(add(largeNumber, largeNumber)).toBe(Infinity);
+    });
+
+    test('Adding Infinity to another number equals Infinity', () => {
+        expect(add(Infinity, 12345)).toBe(Infinity);
+    });
+
+    test('Adding Infinity to a negitive number to Throw error', () => {
+        expect(() => {
+            addPositiveNumbers(Infinity, -12345);
+        }).toThrow('Parameter was not a number.');
+    });
+
+    test('Adding Infinity to Infinity is still Infinity', () => {
+        expect(add(Infinity, Infinity)).toBe(Infinity);
+    });
+
+    test('Adding Infinity to negative Infinity is still Infinity', () => {
+        expect(() => {
+            addPositiveNumbers(Infinity, -Infinity);
         }).toThrow('Parameter was not a number.');
     });
 
