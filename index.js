@@ -63,7 +63,7 @@ export function addPositiveNumbers(first, second) {
 /**
  * Get the title of the latest article on Rolling Stone.
  *
- * @returns {string}
+ * @returns Promise
  */
 export function latestRollingStoneArticleTitle() {
     return fetch('https://www.rollingstone.com/wp-json/wp/v2/posts?per_page=1')
