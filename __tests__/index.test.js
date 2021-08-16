@@ -133,7 +133,7 @@ describe('commaSeparatedStringToArray', () => {
 
     test('Throws when non-string passed', () => {
         expect(() => {
-            commaSeparatedStringToArray(5);
+            commaSeparatedStringToArray(123);
         }).toThrow('Parameter was not a string.');
     });
 });
@@ -151,7 +151,35 @@ describe('addPositiveNumbers', () => {
     test('Throws when non-number passed', () => {
         IsPositiveNumber.isPositiveNumber.mockReturnValueOnce(false).mockReturnValueOnce(true);
         expect(() => {
+            addPositiveNumbers('1', '3');
+        }).toThrow('Parameter was not a number.');
+    });
+
+    test('Throws when non-number passed', () => {
+        IsPositiveNumber.isPositiveNumber.mockReturnValueOnce(false).mockReturnValueOnce(true);
+        expect(() => {
             addPositiveNumbers('1', 3);
+        }).toThrow('Parameter was not a number.');
+    });
+
+    test('Throws when non-number passed', () => {
+        IsPositiveNumber.isPositiveNumber.mockReturnValueOnce(false).mockReturnValueOnce(true);
+        expect(() => {
+            addPositiveNumbers(1, '3');
+        }).toThrow('Parameter was not a number.');
+    });
+
+    test('Throws when non-number passed', () => {
+        IsPositiveNumber.isPositiveNumber.mockReturnValueOnce(false).mockReturnValueOnce(true);
+        expect(() => {
+            addPositiveNumbers(-1, 3);
+        }).toThrow('Parameter was not a number.');
+    });
+
+    test('Throws when non-number passed', () => {
+        IsPositiveNumber.isPositiveNumber.mockReturnValueOnce(false).mockReturnValueOnce(true);
+        expect(() => {
+            addPositiveNumbers(1, -3);
         }).toThrow('Parameter was not a number.');
     });
 
